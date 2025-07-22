@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox fx:id="recipientsBox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.prog3.client.controller.WriteMailController">
+   <children>
+      <HBox prefHeight="35.0" prefWidth="600.0">
+         <children>
+            <Label lineSpacing="10.0" prefHeight="27.0" prefWidth="525.0" text="Nuovo messaggio">
+               <font>
+                  <Font name="Arial Bold" size="23.0" />
+               </font>
+            </Label>
+            <Button onAction="#handleSendEmail" mnemonicParsing="false"  text="INVIA" />
+         </children>
+         <padding>
+            <Insets left="10.0" />
+         </padding>
+      </HBox>
+      <HBox alignment="CENTER" prefHeight="27.0" prefWidth="600.0">
+         <children>
+            <Label prefHeight="27.0" prefWidth="44.0" text="A:" textAlignment="CENTER">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </Label>
+            <TextField fx:id="firstRecipient" prefHeight="26.0" prefWidth="512.0" promptText="example@mail.com">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </TextField>
+            <Button fx:id="addRecipient" onAction="#addHBoxWithTextField" text="+" disable="false" />
+         </children>
+         <VBox.margin>
+            <Insets left="10.0" right="10.0" top="10.0" />
+         </VBox.margin>
+      </HBox>
+      <Separator prefWidth="600.0">
+         <VBox.margin>
+            <Insets left="10.0" right="10.0" />
+         </VBox.margin>
+      </Separator>
+      <HBox alignment="CENTER" layoutX="10.0" layoutY="37.0" prefHeight="27.0" prefWidth="600.0">
+         <children>
+            <Label prefHeight="27.0" prefWidth="112.0" text="Oggetto:" textAlignment="CENTER">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </Label>
+            <TextField fx:id="subjectField" prefHeight="26.0" prefWidth="568.0" promptText="Inserisci oggetto" />
+         </children>
+         <VBox.margin>
+            <Insets left="10.0" right="10.0" />
+         </VBox.margin>
+      </HBox>
+      <Separator prefWidth="200.0">
+         <VBox.margin>
+            <Insets left="10.0" right="10.0" />
+         </VBox.margin>
+      </Separator>
+      <TextArea fx:id="bodyField" prefHeight="284.0" prefWidth="600.0" />
+   </children>
+   <padding>
+      <Insets top="10.0" />
+   </padding>
+</VBox>

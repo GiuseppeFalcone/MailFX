@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="475.0" prefWidth="519.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.prog3.client.controller.InboxController">
+    <AnchorPane prefHeight="83.0" prefWidth="519.0">
+        <Button fx:id="writeNewMailBtn" layoutX="11.0" layoutY="15.0" mnemonicParsing="false" onAction="#handleNewMessage" text="Scrivi" />
+        <Label contentDisplay="CENTER" layoutX="83.0" layoutY="14.0" text="La tua inbox" textAlignment="CENTER" wrapText="true">
+            <font>
+                <Font name="System Bold" size="18.0" />
+            </font>
+        </Label>
+        <MenuButton fx:id="menuButton" layoutX="441.0" layoutY="16.0" mnemonicParsing="false" text="Menù">
+            <items>
+                <MenuItem mnemonicParsing="false" onAction="#handleLogout" text="Logout" />
+            </items>
+        </MenuButton>
+      <Label layoutX="220.0" layoutY="19.0" text="Stato connesione:">
+         <font>
+            <Font name="System Bold Italic" size="13.0" />
+         </font>
+      </Label>
+      <Label fx:id="statoConnessione" layoutX="338.0" layoutY="19.0" prefHeight="18.0" prefWidth="92.0" />
+    </AnchorPane>
+    <SplitPane dividerPositions="0.32" prefHeight="451.0" prefWidth="519.0">
+        <items>
+            <ListView fx:id="inboxListView" prefHeight="422.0" prefWidth="151.0" />
+            <VBox fx:id="detailEmail" prefHeight="200.0" prefWidth="100.0" visible="false">
+                <HBox alignment="CENTER" prefHeight="35.0" prefWidth="600.0">
+                    <opaqueInsets>
+                        <Insets />
+                    </opaqueInsets>
+                    <padding>
+                        <Insets left="4.0" />
+                    </padding>
+                    <Label prefHeight="26.0" prefWidth="342.0" text="Da:" textAlignment="CENTER">
+                        <opaqueInsets>
+                            <Insets />
+                        </opaqueInsets>
+                    </Label>
+                    <TextField fx:id="senderField" editable="false" prefHeight="26.0" prefWidth="632.0">
+                        <opaqueInsets>
+                            <Insets />
+                        </opaqueInsets>
+                    </TextField>
+                </HBox>
+                <HBox alignment="CENTER" prefHeight="35.0" prefWidth="600.0">
+                    <opaqueInsets>
+                        <Insets />
+                    </opaqueInsets>
+                    <padding>
+                        <Insets left="4.0" />
+                    </padding>
+                    <Label prefHeight="26.0" prefWidth="342.0" text="A:" textAlignment="CENTER">
+                        <opaqueInsets>
+                            <Insets />
+                        </opaqueInsets>
+                    </Label>
+                    <TextField fx:id="recipientsField" editable="false" prefHeight="26.0" prefWidth="632.0">
+                        <opaqueInsets>
+                            <Insets />
+                        </opaqueInsets>
+                    </TextField>
+                </HBox>
+                <HBox alignment="CENTER" prefHeight="35.0" prefWidth="348.0">
+                    <children>
+                        <Label prefHeight="27.0" prefWidth="112.0" text="Oggetto:" textAlignment="CENTER"> </Label>
+                        <TextField fx:id="subjectField" editable="false" prefHeight="27.0" prefWidth="349.0" />
+                    </children>
+                    <padding>
+                        <Insets left="4.0" />
+                    </padding>
+                </HBox>
+                <TextArea fx:id="bodyArea" editable="false" prefHeight="309.0" prefWidth="348.0" />
+                <HBox alignment="CENTER_RIGHT" spacing="20.0">
+                    <padding>
+                        <Insets right="5.0" top="8.0" />
+                    </padding>
+               <Button fx:id="replyAll" mnemonicParsing="false" onAction="#handleReplyAll" text="Rispondi a tutti" />
+                    <Button fx:id="replyButton" mnemonicParsing="false" onAction="#handleReply" text="Rispondi" />
+                    <Button fx:id="forwardButton" mnemonicParsing="false" onAction="#handleForwardEmail" text="Inoltra" />
+                    <Button fx:id="deleteButton" mnemonicParsing="false" onAction="#handleDeleteEmail" text="Elimina">
+                    </Button>
+                </HBox>
+            </VBox>
+        </items>
+    </SplitPane>
+</VBox>

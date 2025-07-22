@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextArea?>
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.prog3.server.controller.ServerController">
+    <top>
+        <ToolBar>
+            <Button fx:id="startServerBtn" text="Start Server" onAction="#startServer"/>
+            <Button fx:id="stopServerBtn" text="Stop Server" onAction="#stopServer"/>
+            <Button fx:id="reloadStorageBtn" text="Reload Storage" onAction="#reloadStorage"/>
+        </ToolBar>
+    </top>
+    <center>
+        <VBox spacing="10">
+            <ListView fx:id="logListView" />
+            <TextArea fx:id="logDetailsArea" editable="false" wrapText="true" />
+        </VBox>
+    </center>
+</BorderPane>
